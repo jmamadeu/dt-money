@@ -11,8 +11,8 @@ export const GlobalStyles = css`
     --text-title: #363f5f;
     --text-body: #969cb3;
 
-    --background: #f0f2f5;
     --shape: #ffffff;
+    --green: #33cc95;
   }
 
   * {
@@ -32,7 +32,7 @@ export const GlobalStyles = css`
   }
 
   body {
-    background: var(---background);
+    background: var(--background);
     -webkit-font-smoothing: antialiased;
   }
 
