@@ -1,5 +1,5 @@
 function App() {
-  return <h1>Init Project</h1>
+  return <h1>React Typescript</h1>
 }
 
 export default App;
