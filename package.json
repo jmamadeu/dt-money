@@ -12,6 +12,9 @@
     "format": "npm run lint && npm run prettier:write"
   },
   "dependencies": {
+    "@emotion/css": "^11.5.0",
+    "@emotion/react": "^11.6.0",
+    "@emotion/styled": "^11.6.0",
     "axios": "^0.24.0",
     "react": "^17.0.0",
     "react-dom": "^17.0.0",
