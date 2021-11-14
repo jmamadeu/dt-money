@@ -1,11 +1,14 @@
 import imgLogo from '../../assets/logo.svg';
+import { Container, Content } from './styles';
 
 export function Header() {
   return (
-    <header>
-      <img src={imgLogo} alt="dt-money" />
+    <Container>
+      <Content>
+        <img src={imgLogo} alt="dt-money" />
 
-      <button type="button">New Transaction</button>
-    </header>
+        <button type="button">New Transaction</button>
+      </Content>
+    </Container>
   );
 }
