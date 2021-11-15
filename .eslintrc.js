@@ -32,7 +32,8 @@ module.exports = {
       {},
       {
         usePrettierrc: true,
-        trailingComma: 'none'
+        trailingComma: 'none',
+        singleQuote: true
       }
     ],
     'arrow-parens': 'off',
