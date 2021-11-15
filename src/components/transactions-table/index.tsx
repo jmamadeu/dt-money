@@ -14,12 +14,12 @@ export function TransactionsTable() {
         </thead>
         <tbody>
           <tr>
-            <td className="title">Websites development</td>
+            <td>Websites development</td>
             <td className="deposit">12K</td>
             <td>Income</td>
             <td>12:10:2012</td>
           </tr>
-          <tr className="title">
+          <tr>
             <td>Websites development</td>
             <td className="withdraw">12K</td>
             <td>Income</td>
