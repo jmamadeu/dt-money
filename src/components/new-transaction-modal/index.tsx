@@ -1,8 +1,9 @@
-import { useState } from 'react';
+import { FormEvent, useState } from 'react';
 import ReactModal from 'react-modal';
 import closeImg from '../../assets/close.svg';
 import IncomeImg from '../../assets/income.svg';
 import OutcomeImg from '../../assets/outcome.svg';
+import { api } from '../../services/api';
 import { Container, RadioBox, TransactionTypeContainer } from './styles';
 
 ReactModal.setAppElement('#root');
@@ -16,10 +17,27 @@ export function NewTransactionModal({
   isOpen,
   onRequestClose
 }: NewTransactionModalProperties) {
-  const [type, setType] = useState('deposit');
+  const [inputValues, setInputValues] = useState({
+    title: '',
+    value: 0,
+    category: '',
+    type: 'deposit'
+  });
 
-  function handleChangeType(newType: string) {
-    setType(newType);
+  function handleChangeType(type: string) {
+    setInputValues((old) => ({ ...old, type }));
+  }
+
+  async function handleSubmit(event: FormEvent) {
+    event.preventDefault();
+
+    try {
+      const response = await api.post('/transactions', inputValues);
+
+      console.log(response.data);
+    } catch (err) {
+      console.log(err);
+    }
   }
 
   return (
@@ -36,15 +54,33 @@ export function NewTransactionModal({
       >
         <img src={closeImg} alt="close modal" />
       </button>
-      <Container>
+      <Container onSubmit={handleSubmit}>
         <h2>Add transaction</h2>
 
-        <input type="text" name="title" placeholder="Title" />
-        <input type="number" name="value" placeholder="Value" />
+        <input
+          type="text"
+          name="title"
+          value={inputValues.title}
+          onChange={(title) =>
+            setInputValues((old) => ({ ...old, title: title.target.value }))
+          }
+          placeholder="Title"
+        />
+        <input
+          type="number"
+          name="value"
+          placeholder="Value"
+          onChange={(event) =>
+            setInputValues((old) => ({
+              ...old,
+              value: Number(event.target.value)
+            }))
+          }
+        />
 
         <TransactionTypeContainer>
           <RadioBox
-            isActive={type === 'deposit'}
+            isActive={inputValues.type === 'deposit'}
             type="button"
             activeColor="green"
             onClick={() => handleChangeType('deposit')}
@@ -53,7 +89,7 @@ export function NewTransactionModal({
             <span>Income</span>
           </RadioBox>
           <RadioBox
-            isActive={type === 'withdraw'}
+            isActive={inputValues.type === 'withdraw'}
             activeColor="red"
             type="button"
             onClick={() => handleChangeType('withdraw')}
@@ -63,7 +99,17 @@ export function NewTransactionModal({
           </RadioBox>
         </TransactionTypeContainer>
 
-        <input type="text" name="category" placeholder="Category" />
+        <input
+          type="text"
+          name="category"
+          placeholder="Category"
+          onChange={(event) =>
+            setInputValues((old) => ({
+              ...old,
+              category: event.target.value
+            }))
+          }
+        />
 
         <button type="submit">Add</button>
       </Container>
