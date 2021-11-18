@@ -1,13 +1,19 @@
 import imgLogo from '../../assets/logo.svg';
 import { Container, Content } from './styles';
 
-export function Header() {
+export interface HeaderProperties {
+  onButtonClick?: () => void;
+}
+
+export function Header({ onButtonClick }: HeaderProperties) {
   return (
     <Container>
       <Content>
         <img src={imgLogo} alt="dt-money" />
 
-        <button type="button">New Transaction</button>
+        <button onClick={onButtonClick} type="button">
+          New Transaction
+        </button>
       </Content>
     </Container>
   );
