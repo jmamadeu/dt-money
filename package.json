@@ -16,6 +16,7 @@
     "@emotion/react": "^11.6.0",
     "@emotion/styled": "^11.6.0",
     "axios": "^0.24.0",
+    "miragejs": "^0.1.42",
     "react": "^17.0.0",
     "react-dom": "^17.0.0",
     "uuid": "^8.3.2"
