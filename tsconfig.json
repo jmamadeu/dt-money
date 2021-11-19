@@ -16,7 +16,7 @@
     "jsx": "react-jsx",
     "importHelpers": true,
     "esModuleInterop": true,
-    "baseUrl": "./src"
+    "baseUrl": ".",
   },
   "include": ["./src"],
   "exclude": ["./node_modules", "./*.d.ts"]
