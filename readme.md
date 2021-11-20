@@ -1,6 +1,6 @@
-## Smarkets Light
+## 
 
-Simple react app to fetch sports events and list some details of them
+Manage you incomes and outcomes fastly
 <hr>
 
 ### Techs
@@ -21,9 +21,8 @@ Once you clone the project you must go to the project folder and run
 $ yarn OR npm i # To install the dependencies
 $ yarn dev OR npm run dev # To run the app
 ```
-> Note: The `API_URL` is defined at .env file , so copy and past the file `.env` and rename it to `.env.local` and then set the `VITE_API_BASE_URL` key to the Smarkest API.
 
-This challenge was provide by [Smarkets](https://smarkets.com/)
+This challenge was provide by [Rocketseat](https://rocketseat.com.br/)
 
 
 Made with :heart: by João Amadeu
